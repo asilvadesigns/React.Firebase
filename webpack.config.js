@@ -18,7 +18,7 @@ module.exports = {
     filename: 'bundle.js',
 
     //  location on disk
-    path: resolve(__dirname, 'dist')
+    path: resolve(__dirname, 'dist'),
 
     //  base path for assets
     publicPath: '/'
