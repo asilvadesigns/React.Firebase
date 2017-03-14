@@ -1,4 +1,4 @@
-const { resolve } = require('path');
+const { resolve, join } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -19,7 +19,21 @@ module.exports = {
 
     //  location on disk
     path: resolve(__dirname, 'dist')
+
+    //  base path for assets
+    publicPath: '/'
   },
+
+  //
+  //  webpack dev server
+  devServer: {
+    contentBase: join(__dirname, 'dist'),
+    compress: true
+  },
+
+  //
+  //  sourcemaps
+  devtool: resolve(__dirname, 'src'),
 
   //
   //  handle filetypes
