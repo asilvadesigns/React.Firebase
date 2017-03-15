@@ -71,7 +71,7 @@ class Login extends Component {
       this.state.formEmail,
       this.state.formPassword
     )
-    .then(resolve => console.log(resolve))
+    .then(resolve => console.log('resolve', resolve))
     .catch(error => this._handleError(error.code, error.message));
   }
 
@@ -96,12 +96,12 @@ class Login extends Component {
         {
           this.state.loggedIn ? (
             <div>
-              <button type="button" onClick={this._handleLogout} id="loginLogout">Log Out</button>
+              <button onClick={this._handleLogout} id="loginLogout" type="button">Log Out</button>
             </div>
           ) : (
             <div>
-              <button type="button" onClick={this._handleLogin} id="loginLogin">Log In</button>
-              <button type="button" onClick={this._handleSignup} id="loginSignup">Sign Up</button>
+              <button onClick={this._handleLogin} id="loginLogin" type="button">Log In</button>
+              <button onClick={this._handleSignup} id="loginSignup" type="button">Sign Up</button>
             </div>
           )
         }

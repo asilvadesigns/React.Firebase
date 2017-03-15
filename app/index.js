@@ -1,8 +1,8 @@
 import React from 'react';
 import ReacDOM from 'react-dom';
-import Home from 'Views/Home';
+import Root from 'Views/Root';
 
 ReacDOM.render(
-  <Home/>,
+  <Root/>,
   document.getElementById('app')
 );
