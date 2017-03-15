@@ -2,9 +2,17 @@ const { resolve, join } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+  resolve: {
+    alias: {
+      Components: resolve(__dirname, 'app/components/'),
+      Views: resolve(__dirname, 'app/views/')
+    }
+  },
+
   //
   //  base directory
   context: resolve(__dirname, 'app'),
+
 
   //
   //  base entry point
