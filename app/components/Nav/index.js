@@ -6,6 +6,7 @@ class Nav extends Component {
     return (
       <nav>
         <NavLink exact to="/">Home</NavLink>
+        <NavLink to="/about">About</NavLink>
       </nav>
     )
   }
