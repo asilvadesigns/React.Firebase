@@ -5,6 +5,8 @@ module.exports = {
   resolve: {
     alias: {
       Components: resolve(__dirname, 'app/components/'),
+      Config: resolve(__dirname, 'app/config/'),
+      Ducks: resolve(__dirname, 'app/ducks'),
       Views: resolve(__dirname, 'app/views/')
     }
   },

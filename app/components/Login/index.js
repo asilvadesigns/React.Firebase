@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
+
+import CONFIG from 'Config/firebase';
 import * as firebase from 'firebase';
 
+import { connect } from 'react-redux';
+import { userLogin } from 'Ducks/login';
+
 //  Initialize Firebase
-firebase.initializeApp({
-  apiKey: "AIzaSyBsh_o7KATURdBa3cEOVEnGP_XYuoJR39k",
-  authDomain: "react-firebase-126c1.firebaseapp.com",
-  databaseURL: "https://react-firebase-126c1.firebaseio.com",
-  storageBucket: "react-firebase-126c1.appspot.com",
-  messagingSenderId: "358399071715"
-});
+firebase.initializeApp(CONFIG);
 
 class Login extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       loggedIn: false,
@@ -67,6 +66,14 @@ class Login extends Component {
   }
 
   _handleLogin() {
+
+    this.props.dispatch(
+      userLogin(
+        this.state.formEmail,
+        this.state.formPassword
+      )
+    );
+
     firebase.auth().signInWithEmailAndPassword(
       this.state.formEmail,
       this.state.formPassword
@@ -88,9 +95,11 @@ class Login extends Component {
   }
 
   render() {
+
+    //const { dispatch } = this.props;
+
     return (
       <form autoComplete="on">
-        <h3>Login</h3>
         <div><input onChange={this._setEmail} id="loginEmail" type="email" placeholder="Email"/></div>
         <div><input onChange={this._setPassword} id="loginPassword" type="password" placeholder="Password"/></div>
         {
@@ -111,5 +120,10 @@ class Login extends Component {
   }
 };
 
-export default Login;
+const mapStateToProps = (state) => {
+  return {
 
+  }
+}
+
+export default connect(mapStateToProps)(Login);
